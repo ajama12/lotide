@@ -12,8 +12,8 @@ const countOnly = function(allItems, itemsToCount) {
     let output = {};
     for (let key in itemsToCount) {
       if (itemsToCount[key]) {
-        allItems.forEach(e => {
-          if (e === key) {
+        allItems.forEach(element => {
+          if (element === key) {
             if (!output[key]) {
               output[key] = 1;
             } else {
