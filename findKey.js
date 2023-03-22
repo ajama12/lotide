@@ -1,4 +1,4 @@
-const assertEqual = function(actual, expected) {
+const assertEqual = function (actual, expected) {
   if (actual === expected) {
     console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
   } else if (actual !== expected) {
@@ -6,25 +6,15 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const findKey = function(object, callback) {
-  for (let key in object) {
+//// Function takes in an object and a callback. Returns the first key for which the callback returns a truthy value. If no key is found, then it should return undefined.
+const findKey = function (object, callback) {
+  for (const key in object) {
+    //For each key, the `callback` function is called with the value of the current key as the argument.
+    //If it returns a truthy value for the current key value, the key is returned as the output.
     if (callback(object[key])) {
       return key;
     }
   }
 };
 
-assertEqual(findKey({
-  "Blue Hill": { stars: 1 },
-  "Akaleri":   { stars: 3 },
-  "noma":      { stars: 2 },
-  "elBulli":   { stars: 3 },
-  "Ora":       { stars: 2 },
-  "Akelarre":  { stars: 3 }
-}, x => x.stars === 2), "noma");
-
-assertEqual(findKey({
-  actor1: "Chadwick Boseman",
-  actor2: "Angela Bassett",
-  actor3: "Michael B Jordan"
-}, x => x === "Chadwick Boseman"), "actor1");
+module.exports = findKey;

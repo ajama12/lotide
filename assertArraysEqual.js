@@ -1,4 +1,7 @@
-const assertArraysEqual = function(arr1, arr2) {
+const eqArrays = require("./eqArrays");
+
+//Function that compares arrays using previous eqArrays function
+const assertArraysEqual = function (arr1, arr2) {
   let equal = eqArrays(arr1, arr2);
   let result = "";
   if (equal) {
@@ -9,8 +12,4 @@ const assertArraysEqual = function(arr1, arr2) {
   return result;
 };
 
-const eqArrays = require('./eqArrays');
-
 module.exports = assertArraysEqual;
-
-
